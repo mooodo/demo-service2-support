@@ -7,7 +7,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 /**
  * The utility of the date.
@@ -15,7 +14,6 @@ import java.util.TimeZone;
  */
 public class DateUtils {
 	private static String dateFormat = "yyyy-MM-dd HH:mm:ss";
-	private static TimeZone defaultZone = TimeZone.getTimeZone("Asia/Shanghai");
 	/**
 	 * @param date
 	 * @return 将Date转换为Calendar
@@ -48,7 +46,6 @@ public class DateUtils {
 	 */
 	public static Date getDate(String string, String format) {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
-		sdf.setTimeZone(defaultZone);
 		try {
 			return sdf.parse(string);
 		} catch (ParseException e) {
