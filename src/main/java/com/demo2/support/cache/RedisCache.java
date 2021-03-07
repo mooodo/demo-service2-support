@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -25,6 +26,7 @@ import com.demo2.support.exception.DaoException;
 public class RedisCache implements BasicCache {
 	private static Log log = LogFactory.getLog(RedisCache.class);
 	private static String SPLITTER = "#";
+	private static long TIMEOUT = 20;
 	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;
 
@@ -33,7 +35,7 @@ public class RedisCache implements BasicCache {
 		if(entity==null) return;
 		String key = generateKey(entity, entity.getId());
 		log.debug("set a value object to cache: {key: "+key+", value: "+entity+"}");
-		redisTemplate.opsForValue().set(key, entity);
+		redisTemplate.opsForValue().set(key, entity, TIMEOUT, TimeUnit.SECONDS);
 	}
 
 	@Override
