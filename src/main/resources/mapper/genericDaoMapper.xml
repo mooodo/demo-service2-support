@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo2.support.dao.impl.mybatis.GenericDao">
+ 	<!-- 添加模型 -->
+ 	<select id="insert" >
+ 		INSERT INTO `${param1}`
+ 		<foreach collection="param2" item="item" index="index" open="(" separator="," close=")">
+		`${item}`
+		</foreach> 
+		VALUES<foreach collection="param3" item="item" index="index" open="(" separator="," close=")">
+		#{item}
+		</foreach>
+ 	</select>
+ 	<!-- 修改模型 -->
+ 	<select id="update">
+ 		UPDATE `${param1}`
+ 		SET 
+ 		<foreach collection="param2" item="item" index="index"  separator=",">
+			`${item.key}` = #{item.value}
+		</foreach> 
+ 		WHERE 
+ 		<foreach collection="param3" item="item" index="index"  separator=",">
+			`${item.key}` = #{item.value}
+		</foreach>
+ 	</select>
+ 	<!-- 删除模型 -->
+ 	<select id="delete" >
+ 		DELETE FROM `${param1}` WHERE 
+ 		<foreach collection="param2" item="item" index="index"  separator=",">
+			`${item.key}` = #{item.value}
+		</foreach>
+ 	</select>
+ 	<!-- 删除列表模型 -->
+ 	<select id="deleteForList" >
+ 		DELETE FROM `${param1}` 
+ 		<foreach collection="param2" item="item" index="index" open="WHERE" separator="AND">
+			`${item.key}` IN 
+			<foreach collection="item.value" item="id" index="index" open="(" separator="," close=")">
+				#{id}
+			</foreach>
+		</foreach>
+ 	</select>
+ 	<!-- 装载模型 -->
+ 	<select id="load" resultType="java.util.Map">
+ 		SELECT * FROM `${param1}` 
+ 		<foreach collection="param2" item="item" index="index" open="WHERE" separator="AND">
+			`${item.key}` IN 
+			<foreach collection="item.value" item="id" index="index" open="(" separator="," close=")">
+				#{id}
+			</foreach>
+		</foreach>
+ 	</select>
+ 	<select id="find" resultType="java.util.Map">
+ 		SELECT * FROM `${param1}` 
+ 		<foreach collection="param2" item="item" index="index" open="WHERE" separator="AND">
+			`${item.key}` = #{item.value}
+		</foreach>
+ 	</select>
+</mapper>
