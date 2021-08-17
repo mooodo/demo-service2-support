@@ -26,7 +26,7 @@ public class GenericEntityFactory<S extends Serializable> {
 	/**
 	 * load and assemble domain objects together.
 	 * @param join the join between domain objects.
-	 * @param vo the value object
+	 * @param entity the value object
 	 * @param dao the data access object
 	 */
 	public void build(Join join, Entity<S> entity, BasicDao dao) {
@@ -99,7 +99,7 @@ public class GenericEntityFactory<S extends Serializable> {
 	
 	/**
 	 * set value of the join to the value object.
-	 * @param list the list of value.
+	 * @param value
 	 */
 	private void setValueOfJoinToVo(Entity<S> value) {
 		String name = join.getName();

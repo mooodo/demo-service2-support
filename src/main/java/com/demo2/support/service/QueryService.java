@@ -5,7 +5,7 @@ import java.util.Map;
 import com.demo2.support.entity.ResultSet;
 
 /**
- * The generate query service
+ * The generic query service
  * @author fangang
  */
 public interface QueryService {

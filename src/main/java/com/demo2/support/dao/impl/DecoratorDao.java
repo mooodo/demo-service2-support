@@ -12,7 +12,7 @@ import com.demo2.support.entity.Entity;
  * The decorator for BasicDao, that others can extend all kinds of functions for BasicDao.
  * @author fangang
  * @see com.demo2.support.cache.CacheEntityDao
- * @see com.demo2.support.cache.Repository
+ * @see com.demo2.support.repository.Repository
  */
 public abstract class DecoratorDao implements BasicDao {
 

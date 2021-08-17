@@ -24,7 +24,7 @@ import com.demo2.support.utils.BeanUtils;
 public class DaoEntityHelper {
 
 	/**
-	 * according to the configure, read each of field's value from the entity.
+	 * according to the configuration, read each of field's value from the entity.
 	 * @param entity
 	 * @return daoEntity
 	 */

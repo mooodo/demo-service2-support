@@ -149,7 +149,7 @@ public class EntityUtils {
 	 * downcast to the collection of the entities by the type, 
 	 * decode the json and write to the entity.
 	 * @param type the type of the entity
-	 * @param json the json array string
+	 * @param value the entity which instance of list or set
 	 * @return the collection of the entities
 	 */
 	public static <T extends Entity<S>, S extends Serializable> 

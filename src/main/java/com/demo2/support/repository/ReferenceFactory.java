@@ -93,7 +93,6 @@ public class ReferenceFactory <S extends Serializable> {
 	
 	/**
 	 * @param ref
-	 * @param vo
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
@@ -143,7 +142,7 @@ public class ReferenceFactory <S extends Serializable> {
 	
 	/**
 	 * set value of the join to the entity.
-	 * @param list the list of value.
+	 * @param value
 	 */
 	private void setValueOfRefToEntity(Object value) {
 		String name = ref.getName();

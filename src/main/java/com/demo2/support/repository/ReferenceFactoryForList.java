@@ -173,8 +173,9 @@ public class ReferenceFactoryForList <S extends Serializable, T extends Entity<S
 	}
 	
 	/**
-	 * set value of the join to the value object.
-	 * @param list the list of value.
+	 * set value of the reference to the entity.
+	 * @param entity
+	 * @param value
 	 */
 	private void setValueOfRefToEntity(T entity, Object value) {
 		String name = ref.getName();

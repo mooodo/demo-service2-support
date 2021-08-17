@@ -30,7 +30,7 @@ public class GenericEntityFactoryForList<S extends Serializable, T extends Entit
 	/**
 	 * load and assemble domain objects together.
 	 * @param join the join between domain objects.
-	 * @param list list of the entities
+	 * @param entities list of the entities
 	 * @param dao the data access object
 	 */
 	public void build(Join join, Collection<T> entities, BasicDao dao) {

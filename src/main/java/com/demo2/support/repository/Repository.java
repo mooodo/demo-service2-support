@@ -54,6 +54,7 @@ public class Repository extends DecoratorDao implements BasicDao {
 	}
 	
 	/**
+	 * set each of entities' joins for a list
 	 * @param list
 	 */
 	private <S extends Serializable, T extends Entity<S>> void setJoinsForList(Collection<T> list) { 
@@ -70,7 +71,7 @@ public class Repository extends DecoratorDao implements BasicDao {
 	}
 	
 	/**
-	 * set the entity's joins, if it has.
+	 * set the entity's refs, if it has.
 	 * @param entity
 	 */
 	private <S extends Serializable> void setRefs(Entity<S> entity) {
@@ -84,7 +85,13 @@ public class Repository extends DecoratorDao implements BasicDao {
 			factory.build(ref, entity);
 		}
 	}
-	
+
+	/**
+	 * set each of entities' refs for a list
+	 * @param list
+	 * @param <S> The key
+	 * @param <T> The entity
+	 */
 	private <S extends Serializable, T extends Entity<S>> void setRefsForList(Collection<T> list) {
 		if(list==null||list.isEmpty()) return;
 		Entity<S> template = list.iterator().next();

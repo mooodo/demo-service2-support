@@ -65,7 +65,7 @@ public class BeanUtils {
 	 * set the value to the bean by the field name.
 	 * @param bean
 	 * @param fieldName
-	 * @param value
+	 * @param callback
 	 */
 	public static void setValueByField(Object bean, String fieldName, BeanCallback callback) {
 		try {
@@ -131,7 +131,6 @@ public class BeanUtils {
 	/**
 	 * Downcast the value to the parameterized list or set it should be.
 	 * @param pt ParameterizedType
-	 * @param str the value
 	 * @return the downcast value
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -192,9 +191,9 @@ public class BeanUtils {
 	 * @param methodName the name of the method
 	 * @return the reference of the method
 	 */
-	public static Method getMethodIfExists(Object obj, String methodName) {
+	public static Method getMethodIfExists(Object service, String methodName) {
 		if(methodName==null||methodName.isEmpty()) throw new OrmException("The method name is empty!");
-		Method[] allOfMethods = obj.getClass().getDeclaredMethods();
+		Method[] allOfMethods = service.getClass().getDeclaredMethods();
 		Method rtn = null;
 		for(Method method : allOfMethods) {
 			if(method.getName().equals(methodName)) 
@@ -209,9 +208,9 @@ public class BeanUtils {
 	 * @param methodName the name of the method
 	 * @return the reference of the method
 	 */
-	public static Method getMethod(Object obj, String methodName) {
-		Method rtn = getMethodIfExists(obj, methodName);
+	public static Method getMethod(Object service, String methodName) {
+		Method rtn = getMethodIfExists(service, methodName);
 		if(rtn!=null) return rtn; //if have override, return the last one.
-		throw new OrmException("No such method["+methodName+"] in the Object["+obj.getClass().getName()+"]");
+		throw new OrmException("No such method["+methodName+"] in the Object["+service.getClass().getName()+"]");
 	}
 }

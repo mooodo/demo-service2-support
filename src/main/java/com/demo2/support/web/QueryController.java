@@ -20,7 +20,7 @@ import com.demo2.support.exception.QueryException;
 import com.demo2.support.service.QueryService;
 
 /**
- * The generate query controller
+ * The generic query controller
  * @author fangang
  */
 @RestController

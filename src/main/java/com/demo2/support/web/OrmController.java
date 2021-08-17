@@ -30,7 +30,7 @@ import com.demo2.support.utils.BeanUtils;
 import com.demo2.support.utils.EntityUtils;
 
 /**
- * The generate controller for CRUD operations by ORM
+ * The generic controller for CRUD operations by ORM
  * @author fangang
  */
 @RestController
@@ -94,7 +94,7 @@ public class OrmController {
 		for(Method method : allOfMethods) {
 			if(method.getName().equals(name)) rtn = method;
 		}
-		if(rtn!=null) return rtn; //if have override, return the last one.
+		if(rtn!=null) return rtn; //if it has an override, return the last one.
 		throw new OrmException("No such method["+name+"] in the service["+service.getClass().getName()+"]");
 	}
 	
@@ -104,7 +104,7 @@ public class OrmController {
 	 * if there is no parameters of the method, then return null. 
 	 * @param method
 	 * @param json
-	 * @return the value object with it's data.
+	 * @return the value object with its data.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Object getValueObj(Method method, Map<String, Object> json) {

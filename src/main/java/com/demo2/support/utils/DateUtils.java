@@ -13,7 +13,7 @@ import java.util.Date;
  * @author fangang
  */
 public class DateUtils {
-	private static String dateFormat = "yyyy-MM-dd HH:mm:ss";
+	private static final String dateFormat = "yyyy-MM-dd HH:mm:ss";
 	/**
 	 * @param date
 	 * @return 将Date转换为Calendar

@@ -206,7 +206,6 @@ public class CacheEntityDao extends DecoratorDao implements BasicDao {
 	
 	/**
 	 * fill the entities, which load from other source, in the list of entities load from cache.
-	 * @param ids
 	 * @param entities the list of entities load from cache
 	 * @param otherEntities the other entities load from other source
 	 * @return the list of entities

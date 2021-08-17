@@ -11,7 +11,7 @@ import com.demo2.support.entity.ResultSet;
 import com.demo2.support.service.QueryService;
 
 /**
- * The implement of the generate query service.
+ * The implement of the generic query service.
  * @author fangang
  */
 public class QueryServiceImpl implements QueryService {
